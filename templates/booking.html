@@ -31,7 +31,7 @@
                         {% endwith %}
                         <p class="text-center mb-3">Places Remaining: <strong>{{ competition['numberOfPlaces'] }}</strong></p>
                         <div class="progress mb-4">
-                            <div class="progress-bar progress-bar-custom bg-info" role="progressbar" style="width: {{ (competition['numberOfPlaces'] / 30 * 100)|min(100) }}%;" aria-valuenow="{{ competition['numberOfPlaces'] }}" aria-valuemin="0" aria-valuemax="30">{{ competition['numberOfPlaces'] }} / 30</div>
+                            <div class="progress-bar progress-bar-custom bg-info" role="progressbar" style="width: {{ [100, (competition['numberOfPlaces'] | int / 30 * 100) | int] | min }}%;" aria-valuenow="{{ competition['numberOfPlaces'] }}" aria-valuemin="0" aria-valuemax="30">{{ competition['numberOfPlaces'] }} / 30</div>
                         </div>
                         <form action="{{ url_for('purchasePlaces') }}" method="post" class="needs-validation" novalidate>
                             <input type="hidden" name="competition" value="{{ competition['name'] }}">
