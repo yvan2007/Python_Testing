@@ -9,6 +9,108 @@
             "name": "Fall Classic",
             "date": "2020-10-22 13:30:00",
             "numberOfPlaces": "13"
+        },
+
+        
+        {
+            "name": "Competition KOHFS",
+            "date": "2026-03-26 00:00:00",
+            "numberOfPlaces": "18"
+        },
+        {
+            "name": "Competition MVPEW",
+            "date": "2025-12-28 00:00:00",
+            "numberOfPlaces": "22"
+        },
+        {
+            "name": "Competition EAJUH",
+            "date": "2026-08-08 00:00:00",
+            "numberOfPlaces": "24"
+        },
+        {
+            "name": "Competition MDNAB",
+            "date": "2025-11-26 00:00:00",
+            "numberOfPlaces": "37"
+        },
+        {
+            "name": "Competition NXPBA",
+            "date": "2025-09-21 00:00:00",
+            "numberOfPlaces": "49"
+        },
+        {
+            "name": "Competition YPPOO",
+            "date": "2025-07-19 00:00:00",
+            "numberOfPlaces": "5"
+        },
+        {
+            "name": "Competition VPACO",
+            "date": "2026-08-07 00:00:00",
+            "numberOfPlaces": "34"
+        },
+        {
+            "name": "Competition FEROR",
+            "date": "2026-01-18 00:00:00",
+            "numberOfPlaces": "36"
+        },
+        {
+            "name": "Competition GLVSM",
+            "date": "2025-10-09 00:00:00",
+            "numberOfPlaces": "40"
+        },
+        {
+            "name": "Competition DSQMY",
+            "date": "2025-04-30 00:00:00",
+            "numberOfPlaces": "39"
+        },
+        {
+            "name": "Competition NIHAV",
+            "date": "2025-03-17 00:00:00",
+            "numberOfPlaces": "32"
+        },
+        {
+            "name": "Competition CXYDW",
+            "date": "2026-01-07 00:00:00",
+            "numberOfPlaces": "19"
+        },
+        {
+            "name": "Competition QIQFA",
+            "date": "2026-02-28 00:00:00",
+            "numberOfPlaces": "10"
+        },
+        {
+            "name": "Competition GQWEV",
+            "date": "2024-12-12 00:00:00",
+            "numberOfPlaces": "31"
+        },
+        {
+            "name": "Competition SZHYK",
+            "date": "2026-03-16 00:00:00",
+            "numberOfPlaces": "16"
+        },
+        {
+            "name": "Competition CEFML",
+            "date": "2025-03-14 00:00:00",
+            "numberOfPlaces": "20"
+        },
+        {
+            "name": "Competition OQIWM",
+            "date": "2026-01-18 00:00:00",
+            "numberOfPlaces": "30"
+        },
+        {
+            "name": "Competition HFAZJ",
+            "date": "2025-04-24 00:00:00",
+            "numberOfPlaces": "47"
+        },
+        {
+            "name": "Competition QLWNH",
+            "date": "2026-08-03 00:00:00",
+            "numberOfPlaces": "18"
+        },
+        {
+            "name": "Competition QCCHC",
+            "date": "2025-08-28 00:00:00",
+            "numberOfPlaces": "9"
         }
     ]
 }
