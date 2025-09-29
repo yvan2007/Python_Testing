@@ -1,19 +1,21 @@
-{"clubs":[
-    {
-        "name":"Simply Lift",
-        "email":"john@simplylift.co",
-        "points":"13"
-    },
-    {
-        "name":"Iron Temple",
-        "email": "admin@irontemple.com",
-        "points":"4"
-    },
-    {   "name":"She Lifts",
-        "email": "kate@shelifts.co.uk",
-        "points":"12"
-    },
-    {   
+{
+    "clubs": [
+        {
+            "name": "Simply Lift",
+            "email": "john@simplylift.co",
+            "points": 0
+        },
+        {
+            "name": "Iron Temple",
+            "email": "admin@irontemple.com",
+            "points": "4"
+        },
+        {
+            "name": "She Lifts",
+            "email": "kate@shelifts.co.uk",
+            "points": "12"
+        },
+        {
             "name": "RDZXGCFXKP",
             "email": "rdzxgcfxkp@club.com",
             "points": "8"
@@ -96,7 +98,24 @@
         {
             "name": "XRHYTTXIBC",
             "email": "xrhyttxibc@club.com",
-            "points": "5"
+            "points": "2",
+            "bookings": [
+                {
+                    "competition": "Competition KOHFS",
+                    "places": 1,
+                    "date": "2025-09-29 12:53:04"
+                },
+                {
+                    "competition": "Competition KOHFS",
+                    "places": 1,
+                    "date": "2025-09-29 13:16:13"
+                },
+                {
+                    "competition": "Competition KOHFS",
+                    "places": 1,
+                    "date": "2025-09-29 13:16:28"
+                }
+            ]
         },
         {
             "name": "RQMVVWWZVV",
@@ -113,4 +132,5 @@
             "email": "bhakldinsy@club.com",
             "points": "11"
         }
-]}
+    ]
+}
