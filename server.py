@@ -1,53 +1,44 @@
 import json
-from flask import Flask,render_template,request,redirect,flash,url_for
-
-
-def loadClubs():
-    with open('clubs.json') as c:
-         listOfClubs = json.load(c)['clubs']
-         return listOfClubs
-
-
-def loadCompetitions():
-    with open('competitions.json') as comps:
-         listOfCompetitions = json.load(comps)['competitions']
-         return listOfCompetitions
-
+from flask import Flask, render_template, request, redirect, flash, url_for
 
 app = Flask(__name__)
 app.secret_key = 'something_special'
 
-competitions = loadCompetitions()
+def loadClubs():
+    try:
+        with open('clubs.json', 'r', encoding='utf-8') as c:
+            return json.load(c)['clubs']
+    except FileNotFoundError:
+        return [] 
+        return [] 
+
+def loadCompetitions():
+    try:
+        with open('competitions.json', 'r', encoding='utf-8') as comp:
+            return json.load(comp)['competitions']
+    except FileNotFoundError:
+        return []
+    except json.JSONDecodeError:
+        return []
+
 clubs = loadClubs()
+competitions = loadCompetitions()
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/showSummary',methods=['POST'])
+@app.route('/showSummary', methods=['POST'])
 def showSummary():
-    club = [club for club in clubs if club['email'] == request.form['email']][0]
-    return render_template('welcome.html',club=club,competitions=competitions)
-
-
-@app.route('/book/<competition>/<club>')
-def book(competition,club):
-    foundClub = [c for c in clubs if c['name'] == club][0]
-    foundCompetition = [c for c in competitions if c['name'] == competition][0]
-    if foundClub and foundCompetition:
-        return render_template('booking.html',club=foundClub,competition=foundCompetition)
-    else:
-        flash("Something went wrong-please try again")
-        return render_template('welcome.html', club=club, competitions=competitions)
-
-
-@app.route('/purchasePlaces',methods=['POST'])
-def purchasePlaces():
-    competition = [c for c in competitions if c['name'] == request.form['competition']][0]
-    club = [c for c in clubs if c['name'] == request.form['club']][0]
-    placesRequired = int(request.form['places'])
-    competition['numberOfPlaces'] = int(competition['numberOfPlaces'])-placesRequired
-    flash('Great-booking complete!')
+    email = request.form.get('email') 
+    if not email:
+        flash("Veuillez entrer un email.")
+        return render_template('index.html')
+    matching_clubs = [club for club in clubs if club.get('email') == email]  
+    if not matching_clubs:
+        flash("Aucun club trouvé avec cet email.")
+        return render_template('index.html')
+    club = matching_clubs[0] 
     return render_template('welcome.html', club=club, competitions=competitions)
 
 
@@ -57,3 +48,5 @@ def purchasePlaces():
 @app.route('/logout')
 def logout():
     return redirect(url_for('index'))
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
