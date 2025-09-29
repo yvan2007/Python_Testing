@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 from flask import Flask, render_template, request, redirect, flash, url_for
 
@@ -41,6 +42,21 @@ def showSummary():
     club = matching_clubs[0] 
     return render_template('welcome.html', club=club, competitions=competitions)
 
+@app.route('/book/<competition>/<club>')
+def book(competition, club):
+    matching_club = [c for c in clubs if c['name'] == club]
+    matching_comp = [c for c in competitions if c['name'] == competition]
+    if not matching_club or not matching_comp:
+        flash("Club ou compétition non trouvée.")
+        return render_template('welcome.html', club=matching_club[0] if matching_club else {}, competitions=competitions)
+    found_club = matching_club[0]
+    found_comp = matching_comp[0]
+    comp_date = datetime.strptime(found_comp['date'], "%Y-%m-%d %H:%M:%S")
+    if comp_date < datetime(2025, 9, 29):
+        flash("Cette compétition est passée.")
+        return render_template('welcome.html', club=found_club, competitions=competitions)
+    return render_template('booking.html', club=found_club, competition=found_comp)
+
 
 # TODO: Add route for points display
 
@@ -49,4 +65,4 @@ def showSummary():
 def logout():
     return redirect(url_for('index'))
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
