@@ -10,6 +10,9 @@
         body { background-color: #f0f2f5; }
         .comp-card { transition: transform 0.3s; animation: fadeIn 0.5s; }
         .comp-card:hover { transform: scale(1.05); }
+        .table-gray { background-color: #e9ecef; }
+        .past-comp { background-color: #d3d3d3; opacity: 0.6; pointer-events: none; }
+        .past-comp .btn { background-color: #6c757d; border-color: #6c757d; cursor: not-allowed; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
@@ -29,27 +32,76 @@
             <div class="card-body">
                 <h5 class="card-title">Points Available</h5>
                 <p class="card-text"><span class="badge bg-success">{{ club['points'] }}</span></p>
+                {% if club['points'] | int == 0 %}
+                    <p class="text-danger">You have no points left. Check your bookings below.</p>
+                {% endif %}
             </div>
         </div>
-        <h3 class="mb-3">Competitions:</h3>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-            {% for comp in competitions %}
-                {% if comp['numberOfPlaces']|int > 0 %}
-                    <div class="col">
-                        <div class="card comp-card shadow">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ comp['name'] }}</h5>
-                                <p class="card-text">
-                                    Date: {{ comp['date'] }}<br>
-                                    Places: {{ comp['numberOfPlaces'] }}
-                                </p>
-                                <a href="{{ url_for('book', competition=comp['name'], club=club['name']) }}" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Book up to 12 places (1 point each)">Book Places</a>
-                            </div>
+        <h3 class="mb-3">Available Competitions:</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-4">
+            {% for comp in competitions if not comp['is_past'] and comp['numberOfPlaces']|int > 0 %}
+                <div class="col">
+                    <div class="card comp-card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ comp['name'] }}</h5>
+                            <p class="card-text">
+                                Date: {{ comp['date'] }}<br>
+                                Places: {{ comp['numberOfPlaces'] }}
+                            </p>
+                            <a href="{{ url_for('book', competition=comp['name'], club=club['name']) }}" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Book up to 12 places (1 point each)">Book Places</a>
                         </div>
                     </div>
-                {% endif %}
+                </div>
             {% endfor %}
+            {% if not competitions or not (competitions | selectattr('is_past', 'equalto', false) | selectattr('numberOfPlaces', 'gt', 0) | list) %}
+                <p class="text-center">No available competitions.</p>
+            {% endif %}
         </div>
+        <h3 class="mb-3">Past Competitions:</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+            {% for comp in competitions if comp['is_past'] or comp['numberOfPlaces']|int <= 0 %}
+                <div class="col">
+                    <div class="card comp-card shadow past-comp">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ comp['name'] }}</h5>
+                            <p class="card-text">
+                                Date: {{ comp['date'] }}<br>
+                                Places: {{ comp['numberOfPlaces'] }}
+                            </p>
+                            <button class="btn btn-secondary" disabled>Book Places (Not Available)</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if not (competitions | selectattr('is_past', 'equalto', true) | list) and not (competitions | selectattr('numberOfPlaces', 'lte', 0) | list) %}
+                <p class="text-center">No past or unavailable competitions.</p>
+            {% endif %}
+        </div>
+        <h3 class="mt-5">Your Bookings</h3>
+        {% if club.get('bookings', [])|length > 0 %}
+            <div class="table-responsive">
+                <table class="table table-striped table-gray">
+                    <thead>
+                        <tr>
+                            <th>Competition</th>
+                            <th>Places</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in club.get('bookings', []) %}
+                        <tr>
+                            <td>{{ booking['competition'] }}</td>
+                            <td>{{ booking['places'] }}</td>
+                            <td>{{ booking['date'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="text-center">No bookings yet.</p>
+        {% endif %}
     </div>
     <script>
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
