@@ -1,0 +1,119 @@
+{
+    "clubs": [
+        {
+            "name": "Simply Lift",
+            "email": "john@simplylift.co",
+            "points": "13"
+        },
+        {
+            "name": "Iron Temple",
+            "email": "admin@irontemple.com",
+            "points": "4"
+        },
+        {
+            "name": "She Lifts",
+            "email": "kate@shelifts.co.uk",
+            "points": "12"
+        },
+        {
+            "name": "Strong and Fit",
+            "email": "contact@strongandfit.com",
+            "points": "8"
+        },
+        {
+            "name": "Fit and Strong",
+            "email": "info@fitandstrong.org",
+            "points": "15"
+        },
+        {
+            "name": "Power Gym",
+            "email": "hello@powergym.net",
+            "points": "6"
+        },
+        {
+            "name": "Elite Fitness",
+            "email": "team@elitefitness.com",
+            "points": "20"
+        },
+        {
+            "name": "Athletic Club",
+            "email": "members@athleticclub.org",
+            "points": "11"
+        },
+        {
+            "name": "Sports Center",
+            "email": "contact@sportscenter.com",
+            "points": "7"
+        },
+        {
+            "name": "Fitness Hub",
+            "email": "info@fitnesshub.net",
+            "points": "9"
+        },
+        {
+            "name": "Gym Warriors",
+            "email": "warriors@gymwarriors.com",
+            "points": "14"
+        },
+        {
+            "name": "Body Builders",
+            "email": "build@bodybuilders.org",
+            "points": "5"
+        },
+        {
+            "name": "Muscle Masters",
+            "email": "masters@musclemasters.com",
+            "points": "18"
+        },
+        {
+            "name": "Strength Squad",
+            "email": "squad@strengthsquad.net",
+            "points": "10"
+        },
+        {
+            "name": "Fit Zone",
+            "email": "zone@fitzone.com",
+            "points": "16"
+        },
+        {
+            "name": "Power House",
+            "email": "house@powerhouse.org",
+            "points": "3"
+        },
+        {
+            "name": "Athletic Force",
+            "email": "force@athleticforce.com",
+            "points": "19"
+        },
+        {
+            "name": "Gym Champions",
+            "email": "champions@gymchampions.net",
+            "points": "12"
+        },
+        {
+            "name": "Fitness Pro",
+            "email": "pro@fitnesspro.com",
+            "points": "8"
+        },
+        {
+            "name": "Strong Team",
+            "email": "team@strongteam.org",
+            "points": "13"
+        },
+        {
+            "name": "Elite Athletes",
+            "email": "athletes@eliteathletes.com",
+            "points": "17"
+        },
+        {
+            "name": "Power Players",
+            "email": "players@powerplayers.net",
+            "points": "6"
+        },
+        {
+            "name": "Fit Family",
+            "email": "family@fitfamily.com",
+            "points": "21"
+        }
+    ]
+}
