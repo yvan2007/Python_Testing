@@ -1,14 +1,106 @@
 {
     "competitions": [
         {
-            "name": "Spring Festival",
-            "date": "2020-03-27 10:00:00",
-            "numberOfPlaces": "25"
-        },
-        {
             "name": "Fall Classic",
             "date": "2020-10-22 13:30:00",
-            "numberOfPlaces": "13"
+            "numberOfPlaces": "0",
+            "is_past": true
+        },
+        {
+            "name": "Spring Classic",
+            "date": "2021-04-27 09:00:00",
+            "numberOfPlaces": "17",
+            "is_past": true
+        },
+        {
+            "name": "Competition YPPOO",
+            "date": "2025-07-19 00:00:00",
+            "numberOfPlaces": "5",
+            "is_past": true
+        },
+        {
+            "name": "Competition VPACO",
+            "date": "2026-08-07 00:00:00",
+            "numberOfPlaces": "32",
+            "is_past": false
+        },
+        {
+            "name": "Competition FEROR",
+            "date": "2026-01-18 00:00:00",
+            "numberOfPlaces": "36",
+            "is_past": false
+        },
+        {
+            "name": "Competition GLVSM",
+            "date": "2025-10-09 00:00:00",
+            "numberOfPlaces": "40",
+            "is_past": true
+        },
+        {
+            "name": "Competition DSQMY",
+            "date": "2025-04-30 00:00:00",
+            "numberOfPlaces": "39",
+            "is_past": true
+        },
+        {
+            "name": "Competition NIHAV",
+            "date": "2025-03-17 00:00:00",
+            "numberOfPlaces": "32",
+            "is_past": true
+        },
+        {
+            "name": "Competition CXYDW",
+            "date": "2026-01-07 00:00:00",
+            "numberOfPlaces": "19",
+            "is_past": false
+        },
+        {
+            "name": "Competition QIQFA",
+            "date": "2026-02-28 00:00:00",
+            "numberOfPlaces": "10",
+            "is_past": false
+        },
+        {
+            "name": "Competition GQWEV",
+            "date": "2024-12-12 00:00:00",
+            "numberOfPlaces": "31",
+            "is_past": true
+        },
+        {
+            "name": "Competition SZHYK",
+            "date": "2026-03-16 00:00:00",
+            "numberOfPlaces": "16",
+            "is_past": false
+        },
+        {
+            "name": "Competition CEFML",
+            "date": "2025-03-14 00:00:00",
+            "numberOfPlaces": "20",
+            "is_past": true
+        },
+        {
+            "name": "Competition OQIWM",
+            "date": "2026-01-18 00:00:00",
+            "numberOfPlaces": "30",
+            "is_past": false
+        },
+        {
+            "name": "Competition HFAZJ",
+            "date": "2025-04-24 00:00:00",
+            "numberOfPlaces": "47",
+            "is_past": true
+        },
+        {
+            "name": "Competition QLWNH",
+            "date": "2026-08-03 00:00:00",
+            "numberOfPlaces": "18",
+            "is_past": false
+        },
+        {
+            "name": "Competition QCCHC",
+            "date": "2025-08-28 00:00:00",
+            "numberOfPlaces": "9",
+            "is_past": true
         }
     ]
 }
