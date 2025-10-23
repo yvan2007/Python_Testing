@@ -149,35 +149,36 @@ class TestPhase1:
     
     def test_booking_fails_with_insufficient_points(self, client, restore_data):
         """Test booking failure with insufficient points."""
-        # Trouver un club avec peu de points
+        # Utiliser le club "Power House" qui a 3 points
         valid_club = None
         valid_comp = None
         
         for club in server.clubs:
-            if int(club.get('points', 0)) < 3:
+            if club.get('name') == 'Power House':
                 valid_club = club
                 break
         
         for comp in server.competitions:
-            if int(comp.get('numberOfPlaces', 0)) >= 3:
+            if int(comp.get('numberOfPlaces', 0)) >= 5:  # Réserver plus que les points disponibles
                 valid_comp = comp
                 break
         
-        if valid_club is None:
-            # Créer un club avec peu de points pour le test
-            valid_club = server.clubs[0]
-            valid_club['points'] = '1'
-        
+        assert valid_club is not None, "Power House club not found"
         assert valid_comp is not None, "No valid competition found for testing"
         
+        # Se connecter avec ce club
+        response = client.post('/showSummary', data={'email': valid_club['email']})
+        assert response.status_code == 200
+        
+        # Essayer de réserver 5 places avec seulement 3 points
         response = client.post('/purchasePlaces', data={
             'competition': valid_comp['name'],
             'club': valid_club['name'],
-            'places': '3'
+            'places': '5'
         })
         
         assert response.status_code == 200
-        assert b"Pas assez de points dans votre club" in response.data
+        assert b"Pas assez de points dans votre club (1 point par place)." in response.data
     
     def test_booking_fails_with_negative_places(self, client, restore_data):
         """Test booking failure with negative places."""
