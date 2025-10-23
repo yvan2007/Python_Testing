@@ -4,8 +4,6 @@ Module 1 et Module 2 - Tests et Validation
 """
 
 import pytest
-import json
-import os
 import server
 
 class TestDataManagementEssentiel:
